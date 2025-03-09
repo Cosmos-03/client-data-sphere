@@ -1,0 +1,62 @@
+/* Background for the entire login page - a subtle gradient with a hint of texture */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  /* Optional: if you have a subtle background image, you can uncomment the following:
+  background: url('/assets/images/background-pattern.png') no-repeat center center/cover;
+  */
+  padding: var(--spacing-medium);
+}
+
+/* Login card styling to reflect professionalism and depth */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+mat-card-header {
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  border-radius: 8px 8px 0 0;
+  padding: var(--spacing-small) var(--spacing-medium);
+  text-align: center;
+}
+
+mat-card-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+mat-card-content {
+  padding: var(--spacing-medium);
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: var(--spacing-medium);
+}
+
+.button-group {
+  text-align: center;
+  margin-top: var(--spacing-medium);
+}
+
+/* Define spacing variables if not defined globally */
+:root {
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --card-bg-color: #ffffff;
+  --header-bg-color: #1976d2;
+  --header-text-color: #ffffff;
+}

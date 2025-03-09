@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <!-- Menu button with tooltip -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Open Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="header-title">Dashboard</span>
+
+  <span class="spacer"></span>
+
+  <!-- Dark theme toggle with tooltip -->
+  <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle Dark Mode">
+    <mat-icon>{{ isDarkTheme ? 'brightness_7' : 'brightness_4' }}</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

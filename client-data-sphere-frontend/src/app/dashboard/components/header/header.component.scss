@@ -1,0 +1,14 @@
+.header-toolbar {
+  background-color: var(--header-bg-color) !important;
+  color: var(--header-text-color) !important;
+  padding: 0 var(--spacing-medium);
+}
+
+.header-title {
+  font-size: 1.25rem;
+  margin-left: var(--spacing-medium);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

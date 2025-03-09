@@ -1,0 +1,42 @@
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+/* Spacing & Layout Variables */
+:root {
+  --bg-color: #f0f2f5;
+  --text-color: #333;
+  --card-bg-color: #ffffff;
+  --header-bg-color: #1976d2; /* Azure Blue */
+  --header-text-color: #ffffff;
+
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  --container-max-width: 1200px;
+}
+
+/* DARK THEME */
+.dark-theme {
+  --bg-color: #303030;
+  --text-color: #e0e0e0;
+  --card-bg-color: #525050;
+  --header-bg-color: #1565c0; /* Slightly darker blue */
+  --header-text-color: #ffffff;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* A container to constrain content width */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+}

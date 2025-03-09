@@ -1,0 +1,21 @@
+<div class="table-view-container">
+  <div class="toolbar">
+    <mat-form-field appearance="fill" class="search-bar">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (keyup.enter)="onSearch()" placeholder="Search...">
+    </mat-form-field>
+    
+    <mat-button-toggle-group name="tableView" [(ngModel)]="selectedView" aria-label="Table View" (change)="onViewChange()">
+      <mat-button-toggle value="Stocks">Stocks</mat-button-toggle>
+      <mat-button-toggle value="Holdings">Holdings</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    style="width: 100%; height: 400px;"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [modules]="modules">
+  </ag-grid-angular>
+</div>

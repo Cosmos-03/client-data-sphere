@@ -1,0 +1,33 @@
+.table-view-container {
+  margin-top: var(--spacing-medium);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+}
+
+.search-bar {
+  width: 200px;  /* Compact search bar */
+}
+
+
+/* Refined styling for the toggle button group */
+.mat-button-toggle-group {
+  background-color: var(--card-bg-color);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.mat-button-toggle-button {
+  font-size: 1rem;
+  padding: var(--spacing-small) var(--spacing-medium);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mat-button-toggle-checked {
+  background-color: var(--header-bg-color) !important;
+  color: var(--header-text-color) !important;
+}
