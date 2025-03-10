@@ -10,4 +10,4 @@ import { TableViewComponent } from './components/table-view/table-view.component
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent { }
+export class DashboardComponent {}

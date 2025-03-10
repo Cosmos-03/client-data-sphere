@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class AuthenticationService {
-    // Hard-coded users (simulate fixed users)
+    // Hard-coded users (simulating fixed users)
     private final List<User> users = Arrays.asList(
             new User("user1", "password1"),
             new User("user2", "password2"),

@@ -4,7 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { AuthenticationService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,24 +14,21 @@ import { AuthenticationService } from '../../../services/authentication.service'
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  isDarkTheme: boolean = false;
+  isDarkTheme: boolean = false; // Property to track theme
 
   constructor(
     private router: Router,
     private authService: AuthenticationService
   ) {}
 
-  onLogout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-
+  // Method to toggle dark/light theme
   toggleTheme(): void {
     this.isDarkTheme = !this.isDarkTheme;
     if (this.isDarkTheme) {
@@ -38,5 +36,11 @@ export class HeaderComponent {
     } else {
       document.body.classList.remove('dark-theme');
     }
+  }
+
+  // Logout method
+  onLogout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

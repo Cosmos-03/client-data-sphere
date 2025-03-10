@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationService, AuthResponse } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    FormsModule,
-    MatCardModule,
+  imports: [FormsModule, 
+    MatCardModule, 
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-  ],
+    MatButtonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -29,12 +28,18 @@ export class LoginComponent {
 
   onLogin(): void {
     this.authService.login(this.username, this.password).subscribe({
-      next: () => {
-        // Redirect to dashboard on successful login
-        this.router.navigate(['/dashboard']);
+      next: (response: AuthResponse) => {
+        if (response.token) {
+          // Store the JWT token (consider more secure options in production)
+          localStorage.setItem('token', response.token);
+          // Redirect to the dashboard
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage = 'Invalid server response.';
+        }
       },
       error: (err) => {
-        this.errorMessage = err.message;
+        this.errorMessage = err.error.message || 'Login failed. Please check your credentials.';
       }
     });
   }
